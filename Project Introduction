@@ -1,0 +1,45 @@
+Object detection Web Application
+Group member: Cheng Wang(chengw4), Haodong Song(hs38), Zhiheng Zheng(zheng72), Chengyi Wang(cw72)
+
+Pitch
+Object detection is popular due to the rise of machine learning and computer vision technology. The advance of detection technology would benefit everyone and do some automation work to reduce their workload. Therefore, we plan to establish a platform that serves users without programming knowledge to use our web detection application.   
+
+Functionality
+Users can upload their pictures and videos and select the object they want to detect, and then the web page would box out the object on the pictures or videos and return the pictures or videos with marks.
+Users can connect the camera to their device, and the web page would show the video from cameras and box out the type of object users want to detect.
+If users have some programming knowledge, they would be able to download the model we trained, and we would provide some instructions to help users build the simplest program for detection in their local environment.
+Users can choose whether to show the number of objects being detected or show the box around the object that has been detected. 
+The types of object web pages can detect include people, masks, bikes, cars, human body, chairs, cats and dogs. 
+
+Components
+Detection model: We would incorperate the tensorflow.js in our frontend. We would use datasets from ImageNet and Robotflow (an online platform for users to train their model easily and quickly) to train our custom model on Robotflow platform. The detection model in tensorflow js would be able to detect both videos and pictures. 
+Frontend: We will use Javascript and pure CSS for our frontend, since everyone in our team knows Javascript, and it is a frontend project with Tensorflow.js. We do not consider adding React or other Javascript frameworks since there should only be 2 to 3 pages, pure CSS should also be enough. Also, our web app needs to detect objects using the users' camera, so we need to get access to the web camera. Fortunately, it is easy for Javascript, we can use the getUserMedia property in Javascript.
+
+We choose to only use frontend and without backend since our tensorflow objects should not be very large, and browsers should have more than enough power to run the detection algorithm. Communication between frontend and backend takes time which depends on file size. We hope our web app will be as quick as possible in detection. If the frontend version of the app is much slower than we expected, we will move the computation part to the backend.
+
+Continuous Integration
+For the accuracy of our model, we would use test datasets offered by robotflow platform to derive the accuracy of the model. Also, we could use images from some online datasets such as ImageNet or MNIST to test the accuracy of our trained model locally.  
+For the style guide, the function would use camelCase, and the variable would use snake_case.
+For the test coverage, our test code should validate most of the code and ensure our weekly goal for functionality should be reached.
+For the workflow of pull requests, each member should have their own branch. Every week everyone should have one pull request for the other team members and our mentor to review.  The reviewer should leave some comments to synchronize with others’ workflow and improve the performance of the whole team.
+
+Weekly Planning
+Create a front page, setting all the materials we want to detect on the website page. Collecting training data for all objects we want to detect.
+Start training data set for human face and face mask, plan to finish this training by error in 1e-10.
+Start training data set for bike and car, plan to finish this training by error in 1e-10.
+Start training data set for human body and chairs, plan to finish this training by error in 1e-10.
+Start training data set for human cats and dogs , plan to finish this training by error in 1e-10.
+Deal with errors with overlapping stuff in the detection, considering and fixing problems like how to apply the training data on the monitor.
+Trying to connect the web with the monitor on the computer, put the training data in the backend and use its result on the monitor.
+Optimize the cost of the dataset computing in the frontend of the website and check if there are bugs in the website.
+
+Potential Risks
+We face problems calling monitors from the frontend, since we never did this before. We plan to discuss with our mentor and this will not affect our overall progress.
+It may be difficult to detect objects that are overlapping with each other. We only did single object detection before so we may spend much time searching for information or discussing with our mentor.
+We may find problems finding valid dataset through the internet. Also, the time cost of the training dataset may be unaffordable. We will discuss this problem with our mentor and this will not cost much time.
+
+Teamwork
+We will not have a standardized editor environment, but will mainly use Github and Tensorflow for all editors. This will help us keep our development tools, such as the package manager, consistent across developers' computers, while giving our teammates the flexibility to use their favorite editors.
+
+Since we are a team of four, we will mainly focus on the front-end because Tensorflow will deal with pictures and videos on its own at the front-end. Currently our members already know Javascript, React, html, etc., which we may later use for the front-end. Cheng has learned Tensorflow before, he will teach other members how to apply it including constructing training data, training model, and testing. We will supervise each other’s work to give peer reviews and support for each other.
+
